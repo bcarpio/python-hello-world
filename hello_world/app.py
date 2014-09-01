@@ -1,10 +1,13 @@
 from flask import Flask, render_template, redirect, make_response, Response, jsonify
 import requests
+import os
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    hello = {'Who' : 'Joe', 'What': 'The Shit'}
+    who =  os.environ.get('WHO')
+    what = os.environ.get('WHAT')
+    hello = {'Who' : who, 'What': what}
     r = requests.get("http://ip.jsontest.com/")
     dict = {'data': r.json(), 'text': hello}
     return jsonify(dict)
