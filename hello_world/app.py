@@ -1,10 +1,10 @@
-from flask import Flask, render_template, redirect, make_response, Response
+from flask import Flask, render_template, redirect, make_response, Response, jsonify
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    hello = "Joe Really Is Dope"
-    return render_template('index.html',hello=hello)
+    hello = {'Who' : 'Joe', 'What': 'The Shit'}
+    return jsonify(hello)
 
 if __name__ == '__main__':
     app.debug = True
