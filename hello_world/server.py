@@ -6,6 +6,7 @@ from app import app
 
 # Import CherryPy
 import cherrypy
+import os
 
 if __name__ == '__main__':
 
@@ -20,7 +21,7 @@ if __name__ == '__main__':
 
     # Configure the server object
     server.socket_host = "0.0.0.0"
-    server.socket_port = 8080
+    server.socket_port =  os.getenv('PORT', 8080)
     server.thread_pool = 1
 
     # For SSL Support
