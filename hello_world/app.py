@@ -8,7 +8,7 @@ def hello():
     who =  os.environ.get('WHO')
     what = os.environ.get('WHAT')
     hello = {'Who' : who, 'What': what}
-    dict = {'text': hello}
+    dict = {'text': hello, 'test':'bob'}
     return jsonify(dict)
 
 if __name__ == '__main__':
