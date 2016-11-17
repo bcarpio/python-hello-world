@@ -34,4 +34,4 @@ WORKDIR /hello_world
 # Set the default command to execute
 # when creating a new container
 # i.e. using CherryPy to serve the application
-CMD python server.py
+ENTRYPOINT ["python", "/hello_world/server.py"]

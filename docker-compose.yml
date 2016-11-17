@@ -1,14 +1,14 @@
 version: '2'
 services:
   swat:
-    image: dtr-sandbox.fusion.lmig.com/bcarpio/python_hello_world
+    image: dtr-sandbox.fusion.lmig.com/bcarpio/python_hello_world:0.0.12
     ports:
       - "8080"
     environment:
-      WHO: 'Brian'
-      WHAT: 'Is Dope'
+      WHO: 'Brian Carpio'
+      WHAT: 'Is A Greenpages Consultant'
     networks:
-      - swat
+      - helloworld
     container_name: swat
 
   nginx:
@@ -21,6 +21,6 @@ services:
       interlock.hostname: "helloworld"
       interlock.domain: "example.com"
     networks:
-      - swat
+      - helloworld
 networks:
-  swat:
+  helloworld:
