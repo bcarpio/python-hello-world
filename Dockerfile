@@ -9,16 +9,15 @@ FROM ubuntu
 # File Author / Maintainer
 MAINTAINER Brian Carpio
 
-# Add the application resources URL
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty main universe" >> /etc/apt/sources.list
-
 # Update the sources list
 RUN apt-get update
 
 # Install basic applications
 
 # Install Python and Basic Python Tools
-RUN apt-get install -y python python-dev python-distribute python-pip
+RUN apt-get install -y python python-dev python-distribute curl
+RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+RUN python ./get-pip.py
 
 ADD /hello_world/ /hello_world
 
